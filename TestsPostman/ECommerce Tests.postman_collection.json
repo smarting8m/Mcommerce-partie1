@@ -1,0 +1,109 @@
+{
+	"info": {
+		"_postman_id": "60f45644-d1ea-4635-88b2-81311ce43524",
+		"name": "ECommerce Tests",
+		"description": "This collection purpose is to test all added method for the openclassroom exercises.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Calcul de marge",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8988/AdminProduits",
+					"host": [
+						"localhost"
+					],
+					"port": "8988",
+					"path": [
+						"AdminProduits"
+					]
+				},
+				"description": "Ce test permet de vérifier le retour lorsque le calcul de marge pour chaque produit est demandé"
+			},
+			"response": []
+		},
+		{
+			"name": "Tri des produits",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8988/produits/sort",
+					"host": [
+						"localhost"
+					],
+					"port": "8988",
+					"path": [
+						"produits",
+						"sort"
+					]
+				},
+				"description": "Cette requête permet de tester le retour des produits lorsqu'ils sont demandés par ordre alphabétique"
+			},
+			"response": []
+		},
+		{
+			"name": "Ajout d'un produit avec une marge nulle",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\" : \"suppositoire\",\n\t\"prix\" : 69,\n\t\"prixAchat\" : 69\n}"
+				},
+				"url": {
+					"raw": "localhost:8988/Produits",
+					"host": [
+						"localhost"
+					],
+					"port": "8988",
+					"path": [
+						"Produits"
+					]
+				},
+				"description": "Cette requête permet de tester l'ajout d'un produit dont la marge est nulle"
+			},
+			"response": []
+		},
+		{
+			"name": "Ajout d'un produit avec une marge négative",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nom\" : \"preservatif\",\n\t\"prix\" : 51,\n\t\"prixAchat\" : 1664\n}"
+				},
+				"url": {
+					"raw": "localhost:8988/Produits",
+					"host": [
+						"localhost"
+					],
+					"port": "8988",
+					"path": [
+						"Produits"
+					]
+				},
+				"description": "Cette requête permet de tester le comportement de l'API lorsque l'utilisateur tente d'ajouter un produit avec une marge néagtive"
+			},
+			"response": []
+		}
+	]
+}
