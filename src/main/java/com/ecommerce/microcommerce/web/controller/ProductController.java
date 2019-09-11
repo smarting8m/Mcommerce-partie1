@@ -112,4 +112,15 @@ public class ProductController {
 		return productDao.chercherUnProduitCher(400);
 	}
 
+	@GetMapping(value = "/AdminProduits")
+	public Map<Product, Integer> calculerMargeProduit() {
+		HashMap<Product, Integer> lMargeList = new HashMap<Product, Integer>();
+		productDao.findAll().forEach(lProduit -> {
+			Integer lMarge = lProduit.getPrix() - lProduit.getPrixAchat();
+			lMargeList.put(lProduit, lMarge);
+		});
+
+		return lMargeList;
+	}
+
 }
