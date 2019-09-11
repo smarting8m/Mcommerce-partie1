@@ -123,4 +123,9 @@ public class ProductController {
 		return lMargeList;
 	}
 
+	@GetMapping(value = "/produits/sort")
+	public List<Product> trierProduitsParOrdreAlphabetique() {
+		return productDao.findAllByOrderByNomAsc();
+	}
+
 }
